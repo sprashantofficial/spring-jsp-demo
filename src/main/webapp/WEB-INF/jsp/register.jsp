@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <html>
 
@@ -6,12 +7,12 @@
 <title>Login Page</title>
 <link href="webjars/bootstrap/4.6.0/css/bootstrap.min.css"
 	rel="stylesheet">
-<link rel="stylesheet"
+	<link rel="stylesheet"
 	href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 <style>
 .login-form {
 	width: 400px;
-	height: 275px;
+	height: 230px;
 	background-color: #34568B;
 	position: absolute;
 	top: 50%;
@@ -19,32 +20,29 @@
 	margin-right: -50%;
 	transform: translate(-50%, -50%);
 }
+
 </style>
 </head>
 
 <body>
-
+	
 	<div class="login-form">
-
+	
 		<div class="container-fluid">
-			<form method="post" action="login">
-
+			<form:form method="post" action="register" modelAttribute="user">	
 				<div class="mt-3">
-					<input type="text" class="form-control" name="userId"
+					<form:input type="text" class="form-control" path="userId"
 						placeholder="User ID" />
 				</div>
 				<div class="mt-3">
-					<input type="password" class="form-control" name="password"
+					<form:input type="password" class="form-control" path="password"
 						placeholder="Password" />
 				</div>
-				<button type="submit" class="btn btn-dark btn-block mt-3">Login</button>
+				<form:button type="submit" class="btn btn-dark btn-block mt-3">Register</form:button>
+			</form:form>
 
-				<div class="mt-3">
-					<a href="/register" class="btn btn-success btn-block mt-3">Register</a>
-				</div>
-
-			</form>
 		</div>
+		
 	</div>
 
 	<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
@@ -77,7 +75,6 @@
 					"hideMethod" : "fadeOut"
 				}
 			}
-
 		}
 	</script>
 </body>
